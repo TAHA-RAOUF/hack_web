@@ -13,8 +13,9 @@
             <div class="gradient-border"></div>
         </div>
 
-        <form id="hackathonForm" netlify>
+        <form id="hackathonForm" netlify method = "POST">
             <!-- Personal Information Section -->
+	    <input type="hidden" name="hackathonForm" value="hackathonForm">
             <div class="form-section">
                 <div class="input-group">
                     <input type="text" name="name" required>
