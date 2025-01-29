@@ -1,0 +1,183 @@
+
+/* Base stylistique cohérente avec le site */
+body {
+    background: #0a0a15;
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.form-container {
+    max-width: 800px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    padding: 3rem;
+    border: 1px solid rgba(0, 163, 255, 0.2);
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.neon-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.neon-header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, #00ff88, #00a3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+/* Style des inputs */
+.input-group {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.input-group label {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7d7dff;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background: #0a0a15;
+    padding: 0 0.5rem;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label,
+.input-group select:valid ~ label,
+.input-group textarea:focus ~ label,
+.input-group textarea:valid ~ label {
+    top: 0;
+    font-size: 0.8rem;
+    color: #00ff88;
+}
+
+.glow-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #00ff88, #00a3ff);
+    transition: width 0.3s ease;
+}
+
+.input-group input:focus ~ .glow-line,
+.input-group select:focus ~ .glow-line,
+.input-group textarea:focus ~ .glow-line {
+    width: 100%;
+}
+
+/* Style personnalisé pour le file upload */
+.file-upload input[type="file"] {
+    display: none;
+}
+
+.upload-label {
+    display: block;
+    padding: 1.5rem;
+    border: 2px dashed rgba(0, 163, 255, 0.3);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-label:hover {
+    border-color: #00ff88;
+    background: rgba(0, 255, 136, 0.05);
+}
+
+/* Checkbox style */
+.checkbox-group {
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.checkbox-group input {
+    accent-color: #00ff88;
+    width: 20px;
+    height: 20px;
+}
+
+.neon-link {
+    color: #00a3ff;
+    text-decoration: none;
+    position: relative;
+}
+
+.neon-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #00ff88;
+    transition: width 0.3s ease;
+}
+
+.neon-link:hover::after {
+    width: 100%;
+}
+
+/* Message de confirmation */
+.confirmation-message {
+    display: none;
+    padding: 2rem;
+    margin-top: 2rem;
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid #00ff88;
+    border-radius: 8px;
+    text-align: center;
+    animation: neonPulse 1.5s infinite;
+}
+
+@keyframes neonPulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; box-shadow: 0 0 15px rgba(0, 255, 136, 0.3); }
+    100% { opacity: 0.8; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 1.5rem;
+    }
+    
+    .neon-header h1 {
+        font-size: 2rem;
+    }
+}

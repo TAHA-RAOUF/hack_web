@@ -1,0 +1,230 @@
+
+/* Base stylistique */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0a15;
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vh; /* Ajuste selon tes besoins */
+    margin: 2rem 0;
+}
+/* Conteneur principal */
+.hackathon-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* En-tête neon */
+.neon-header {
+    text-align: center;
+    margin: 3rem 0;
+    position: relative; /* ... autres styles existants ... */
+    animation: blink 1.5s infinite alternate;
+}
+
+@keyframes blink {
+    0% { opacity: 0.8; text-shadow: 0 0 5px #00ff88; }
+    50% { opacity: 1; text-shadow: 0 0 20px #00ff88, 0 0 30px #00a3ff; }
+    100% { opacity: 0.8; text-shadow: 0 0 5px #00ff88; }
+}
+
+
+.neon-header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #00ff88, #00a3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    color: #7d7dff;
+    margin-top: 1rem;
+}
+
+.gradient-border {
+    height: 4px;
+    width: 200px;
+    background: linear-gradient(90deg, #00ff88, #00a3ff);
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+/* Compte à rebours */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 4rem 0;
+}
+
+.time-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem 2.5rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.time-box:hover {
+    transform: translateY(-5px);
+}
+
+.time-box span {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #00ff88;
+}
+
+.time-box small {
+    display: block;
+    color: #7d7dff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 0.5rem;
+}
+
+/* Bouton CTA */
+.cta-button {
+    display: inline-block;
+    position: relative;
+    margin: 2rem auto;
+    padding: 1.5rem 3rem;
+    background: linear-gradient(45deg, #00a3ff, #00ff88);
+    color: #000;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    overflow: hidden;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 136, 0.4);
+    transform: scale(1.05);
+	position:  center;
+}
+
+.hover-effect {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    width: 50px;
+    height: 100%;
+    left: -50%;
+    top: 0;
+    transform: skewX(-30deg);
+    transition: 0.4s;
+}
+
+.cta-button:hover .hover-effect {
+    left: 150%;
+}
+
+/* Cartes d'information */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 4rem 0;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-card h2 {
+    color: #00ff88;
+    margin-bottom: 1rem;
+}
+
+.info-card p, .info-card li {
+    color: #bdbdff;
+    line-height: 1.6;
+}
+
+.card-glow {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(0, 163, 255, 0.2) 0%, transparent 70%);
+    top: -50px;
+    right: -50px;
+    z-index: -1;
+}
+
+/* Section Règles */
+.rules-section {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 4rem 0;
+    border: 1px solid rgba(0, 163, 255, 0.2);
+}
+
+.rules-list {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.rule-item {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 4px solid #00ff88;
+    border-radius: 5px;
+}
+
+/* Particules animées */
+@keyframes particle-flow {
+    0% { transform: translateY(-100%) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+.particles {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particles::before {
+    content: "";
+    position: absolute;
+    width: 150vw;
+    height: 150vh;
+    background: radial-gradient(circle, rgba(0, 163, 255, 0.05) 0%, transparent 70%);
+    animation: particle-flow 20s linear infinite;
+}

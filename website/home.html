@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web Hackathon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link href="/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Main Container -->
+    <div class="hackathon-container">
+
+        <!-- Animated Header -->
+        <header class="neon-header">
+            <h1>🚀 Hackathon 1337</h1>
+            <p class="subtitle">4-Hour Coding Challenge</p>
+            <div class="gradient-border"></div>
+        </header>
+
+        
+        <div class="countdown">
+            <div class="time-box">
+                <span id="days">00</span>
+                <small>Days</small>
+            </div>
+            <div class="time-box">
+                <span id="hours">00</span>
+                <small>Hours</small>
+            </div>
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <small>Minutes</small>
+            </div>
+        </div>
+
+        <!-- Main CTA -->
+        <div class="center-container">
+            <a href="form.html" class="cta-button pulse">
+                <span class="cta-text">Free Registration</span>
+                <div class="hover-effect"></div>
+            </a>
+        </div>
+
+        <!-- Info Cards -->
+        <div class="info-grid">
+            <div class="info-card">
+                <h2>🎯 Theme</h2>
+                <p>AI for Ecology</p>
+                <div class="card-glow"></div>
+            </div>
+
+            <div class="info-card">
+                <h2>🏆 Prizes</h2>
+                <ul>
+                    <li>1st: €5000</li>
+                    <li>2nd: Tech Gear</li>
+                    <li>3rd: Training Courses</li>
+                </ul>
+                <div class="card-glow"></div>
+            </div>
+        </div>
+
+        <!-- Rules Section -->
+        <div class="rules-section">
+            <h2>📜 Rules</h2>
+            <div class="rules-list">
+                <div class="rule-item">✅ Teams of 1-3 people</div>
+                <div class="rule-item">✅ Open source project</div>
+                <div class="rule-item">✅ 4 hours non-stop!</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Particle Effects -->
+    <div class="particles"></div>
+</body>
+
+</html>
+
+<script>
+    // Countdown Timer
+    const countdownDate = new Date('2025-01-31T15:15:00').getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.getElementById('days').innerText = days.toString().padStart(2, '0');
+        document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+</script>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription Hackathon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style_form.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="neon-header">
+            <h1>📝 INSCRIPTION</h1>
+            <div class="gradient-border"></div>
+        </div>
+
+        <form id="hackathonForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <!-- Section Info Personnelle -->
+            <div class="form-section">
+                <div class="input-group">
+                    <input type="text" name="name" required>
+                    <label>Nom Complet</label>
+                    <div class="glow-line"></div>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" name="email" required>
+                    <label>Email</label>
+                    <div class="glow-line"></div>
+                </div>
+            </div>
+
+            <!-- Section Équipe -->
+            <div class="form-section">
+                <div class="input-group">
+                    <input type="text" name="team_name">
+                    <label>Nom de l'Équipe (optionnel)</label>
+                    <div class="glow-line"></div>
+                </div>
+
+                <div class="input-group">
+                    <select name="team_size" required>
+                        <option value="" disabled selected></option>
+                        <option value="1">Solo</option>
+                        <option value="2">Duo</option>
+                        <option value="3">Trio</option>
+                    </select>
+                    <label>Taille de l'Équipe</label>
+                    <div class="glow-line"></div>
+                </div>
+            </div>
+
+            <!-- Section Projet -->
+            <div class="form-section">
+                <div class="input-group">
+                    <textarea name="project_idea" rows="4" required></textarea>
+                    <label>Idée de Projet (140 caractères max)</label>
+                    <div class="glow-line"></div>
+                </div>
+
+                <!-- <div class="input-group file-upload">
+                    <input type="file" name="cv" accept=".pdf,.doc,.docx">
+                    <label class="upload-label">
+                        <span>📎 Télécharger ton CV (optionnel)</span>
+                    </label>
+                </div> -->
+            </div>
+
+            <!-- Checkbox RGPD -->
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">J'accepte les <a href="#" class="neon-link">conditions générales</a></label>
+            </div>
+
+            <button type="submit" class="cta-button pulse">
+                <span class="cta-text">Envoyer ➔</span>
+                <div class="hover-effect"></div>
+            </button>
+        </form>
+
+        <div id="confirmationMessage" class="confirmation-message"></div>
+    </div>
+</body>
+</html>
+
+<script>
+// Animation de confirmation
+document.getElementById('hackathonForm').addEventListener('submit', function(e) {
+    e.preventDefault()
+    
+    const formData = new FormData(this)
+    const confirmationMessage = document.getElementById('confirmationMessage')
+    
+    // Simuler l'envoi (remplacer par vraie requête AJAX)
+    setTimeout(() => {
+        confirmationMessage.style.display = 'block'
+        confirmationMessage.innerHTML = `
+            <h3>🚀 Inscription Validée !</h3>
+        `
+        this.reset()
+    }, 1000)
+})
+</script>
