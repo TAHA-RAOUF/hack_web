@@ -10,16 +10,28 @@ body {
     align-items: center;
     padding: 2rem;
 }
-
+#particles-js {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	background: #000;
+	/* pointer-events: none; */
+  }
 .form-container {
     max-width: 800px;
     width: 100%;
-    background: rgba(255, 255, 255, 0.03);
+    /* background: rgba(255, 255, 255, 0.03); */
     border-radius: 20px;
     padding: 3rem;
     border: 1px solid rgba(0, 163, 255, 0.2);
     position: relative;
     backdrop-filter: blur(10px);
+	position: relative;
+  	z-index: 1;
+ 	 background: rgba(0, 0, 0, 0.85);
 }
 
 .neon-header {
@@ -179,5 +191,104 @@ body {
     
     .neon-header h1 {
         font-size: 2rem;
+    }
+}
+/* Add at the bottom of your CSS file */
+
+/* Mobile First Approach */
+@media (max-width: 767px) {
+    /* Base adjustments */
+    body {
+        font-size: 14px;
+    }
+
+    /* Header */
+    .neon-header h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+        padding: 0 1rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    /* Countdown */
+    .countdown {
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 2rem 0;
+    }
+
+    .time-box {
+        padding: 1rem;
+        width: 45%;
+        min-width: 120px;
+    }
+
+    .time-box span {
+        font-size: 2rem;
+    }
+
+    /* CTA Button */
+    .cta-button {
+        padding: 1rem 2rem;
+        font-size: 0.9rem;
+        width: 90%;
+        text-align: center;
+    }
+
+    /* Info Grid */
+    .info-grid {
+        grid-template-columns: 1fr;
+        margin: 2rem 0;
+    }
+
+    /* Rules Section */
+    .rules-section {
+        margin: 2rem 0;
+        padding: 1rem;
+    }
+
+    /* Footer */
+    .footer {
+        position: relative;
+        padding: 1rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .footer-image {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Tablet Adjustments */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .neon-header h1 {
+        font-size: 3rem;
+    }
+
+    .time-box {
+        padding: 1.2rem;
+    }
+
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Special Landscape Adjustments */
+@media (max-width: 767px) and (orientation: landscape) {
+    body {
+        font-size: 12px;
+    }
+
+    .neon-header h1 {
+        font-size: 1.8rem;
     }
 }

@@ -11,7 +11,7 @@ link[rel="icon"] {
 }
 
 body {
-    background: #0a0a15;
+    background: #323244;
     color: #fff;
     font-family: 'Space Grotesk', sans-serif;
     min-height: 100vh;
@@ -214,24 +214,29 @@ body {
     100% { transform: translateY(100vh) rotate(360deg); }
 }
 
-.particles {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.particles::before {
-    content: "";
-    position: absolute;
-    width: 150vw;
-    height: 150vh;
-    background: radial-gradient(circle, rgba(0, 163, 255, 0.05) 0%, transparent 70%);
-    animation: particle-flow 20s linear infinite;
-}
+/* Particles container */
+#particles-js {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	background: #000;
+  }
+  
+  /* Ensure content appears above particles */
+  .hackathon-container {
+	position: relative;
+	z-index: 1;
+	background: rgba(0, 0, 0, 0.85);
+  }
+  
+  /* Fix footer positioning */
+  .footer {
+	position: fixed;
+	z-index: 1000;
+  }
 /* Footer Styles */
 .footer {
     position: fixed;
@@ -243,6 +248,7 @@ body {
     text-align: center;
     backdrop-filter: blur(5px);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000; /* Ajout crucial */
 }
 
 .footer-content {
@@ -250,6 +256,19 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    position: relative; /* Nécessaire pour le z-index */
+}
+
+.footer-link {
+    display: inline-block;
+    padding: 5px 10px;
+    color: #00ff88;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    cursor: pointer !important; /* Force le curseur */
+    position: relative;
+    z-index: 2; /* Doit être supérieur au z-index de l'image */
 }
 
 .footer-image {
@@ -257,15 +276,48 @@ body {
     height: 50px;
     border-radius: 50%;
     border: 2px solid #00ff88;
+    z-index: 1; /* Plus bas que le lien */
+    position: relative;
+}
+@keyframes slideUp {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
-.footer-link {
-    color: #00ff88;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+.info-card {
+    animation: slideUp 0.9s ease-out;
 }
 
-.footer-link:hover {
-    color: #00a3ff;
-}   
+:root {
+    --primary: #00ff88;
+    --background: #323244;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --primary: #0066ff;
+        --background: #ffffff;
+    }
+}
+.cta-button.loading {
+    position: relative;
+    color: transparent;
+}
+.cta-button.loading::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+.hamburger-menu {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .desktop-nav { display: none; }
+    .hamburger-menu { display: block; }
+}
