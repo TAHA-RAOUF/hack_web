@@ -77,20 +77,28 @@
 </html>
 
 <script>
-// Confirmation Animation
-document.getElementById('hackathonForm').addEventListener('submit', function(e) {
-    e.preventDefault()
-    
-    const formData = new FormData(this)
-    const confirmationMessage = document.getElementById('confirmationMessage')
-    
-    // Simulate submission (replace with real AJAX request)
-    setTimeout(() => {
-        confirmationMessage.style.display = 'block'
-        confirmationMessage.innerHTML = `
-            <h3>🚀 Registration Successful!</h3>
-        `
-        this.reset()
-    }, 1000)
-})
-</script>
+	document.getElementById('hackathonForm').addEventListener('submit', async function(e) {
+		e.preventDefault() // Bloquer le comportement par défaut
+	
+		const formData = new FormData(this)
+		const confirmationMessage = document.getElementById('confirmationMessage')
+	
+		try {
+			const response = await fetch(this.action, {
+				method: "POST",
+				body: formData
+			})
+	
+			if (response.ok) {
+				confirmationMessage.style.display = 'block'
+				confirmationMessage.innerHTML = `<h3>🚀 Registration Successful!</h3>`
+				this.reset()
+			} else {
+				alert("❌ Erreur lors de l'envoi")
+			}
+		} catch (error) {
+			alert("❌ Erreur de connexion")
+		}
+	})
+	</script>
+	
