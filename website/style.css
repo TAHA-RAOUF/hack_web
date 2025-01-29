@@ -1,4 +1,8 @@
 
+link[rel="icon"] {
+    border-radius: 50%;
+}
+
 /* Base stylistique */
 * {
     margin: 0;
