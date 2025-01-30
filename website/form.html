@@ -14,7 +14,7 @@
             <h1>📝 REGISTRATION</h1>
             <div class="gradient-border"></div>
         </div>
-
+		<div id="confirmationMessage" class="confirmation-message"></div>
         <form id="hackathonForm" netlify method = "POST">
             <!-- Personal Information Section -->
 	    <input type="hidden" name="hackathonForm" value="hackathonForm">
@@ -35,13 +35,13 @@
             <!-- Team Section -->
             <div class="form-section">
                 <div class="input-group">
-                    <input type="text" name="team_name">
-                    <label>Team Name (optional)</label>
+                    <input type="text" name="team_name" required>
+                    <label>Team Name </label>
                     <div class="glow-line"></div>
                 </div>
 
                 <div class="input-group">
-                    <select name="team_size" required>
+                    <select name="team_size" required class="input_color">
                         <option value="" disabled selected></option>
                         <option value="1">Solo</option>
                         <option value="2">Duo</option>
@@ -67,20 +67,20 @@
                 <label for="terms">I accept the <a href="#" class="neon-link">terms and conditions</a></label>
             </div>
 
-            <button type="submit" class="cta-button pulse">
-                <span class="cta-text">Submit ➔</span>
-                <div class="hover-effect"></div>
-            </button>
+            <div class="center-container">
+				<button class="cta-button pulse">
+					<span class="cta-text">Submit ➔</span>
+					<div class="hover-effect"></div>
+				</button>
+			</div>
         </form>
-
-        <div id="confirmationMessage" class="confirmation-message"></div>
     </div>
 </body>
 </html>
 
 <script>
 	document.getElementById('hackathonForm').addEventListener('submit', async function(e) {
-		e.preventDefault() // Bloquer le comportement par défaut
+		e.preventDefault()
 	
 		const formData = new FormData(this)
 		const confirmationMessage = document.getElementById('confirmationMessage')
@@ -95,6 +95,12 @@
 				confirmationMessage.style.display = 'block'
 				confirmationMessage.innerHTML = `<h3>🚀 Registration Successful!</h3>`
 				this.reset()
+				
+				// Redirection après 3 secondes
+				setTimeout(() => {
+					window.location.href = '/home.html' // Remplacez par votre URL d'accueil
+				}, 7000)
+				
 			} else {
 				alert("❌ Erreur lors de l'envoi")
 			}
