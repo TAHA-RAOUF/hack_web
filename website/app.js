@@ -1,6 +1,6 @@
 
 
-	const countdownDate = new Date('2025-01-31T15:15:00').getTime();
+	const countdownDate = new Date('2025-02-03T08:00:00').getTime();
 
 	function updateCountdown() {
 		const now = new Date().getTime();
