@@ -33,6 +33,31 @@ body {
     position: relative;
     z-index: 1;
 }
+.sub-name {
+    font-size: 3em;
+    font-weight: bold;
+    color: #00ffcc; /* Neon green color */
+    margin-top: 10px;
+}
+.edition-logo {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 15px;
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    transition: transform 0.3s ease;
+}
+
+.edition-logo:hover {
+    transform: scale(1.1);
+}
+
+@keyframes starSpin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+}
 
 /* En-tête neon */
 .neon-header {
