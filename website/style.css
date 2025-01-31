@@ -175,13 +175,6 @@ body {
 }
 
 /* Cartes d'information */
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 4rem 0;
-}
-
 .info-card {
     background: rgba(255, 255, 255, 0.05);
     padding: 2rem;
@@ -189,17 +182,30 @@ body {
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.info-card h2 {
-    color: #00ff88;
-    margin-bottom: 1rem;
+.info-card:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.7); /* Glow effect */
 }
 
-.info-card p, .info-card li {
-    color: #bdbdff;
-    line-height: 1.6;
+.card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 255, 136, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
+
+.info-card:hover .card-glow {
+    opacity: 1;
+}
+
 
 .card-glow {
     position: absolute;
@@ -218,6 +224,15 @@ body {
     border-radius: 15px;
     margin: 4rem 0;
     border: 1px solid rgba(0, 163, 255, 0.2);
+    opacity: 0; /* Initial hidden state */
+    transform: translateY(20px); /* Initial position, below the screen */
+    transition: opacity 1.5s ease, transform 1.5s ease; /* Smooth transition */
+}
+
+/* Fade-in and slide-up animation */
+.rules-section.visible {
+    opacity: 1;
+    transform: translateY(0); /* Move to its original position */
 }
 
 .rules-list {
@@ -231,6 +246,57 @@ body {
     background: rgba(255, 255, 255, 0.03);
     border-left: 4px solid #00ff88;
     border-radius: 5px;
+    opacity: 0;
+    transform: translateY(10px); /* Start below the original position */
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Delay animation for each rule-item to create the stagger effect */
+.rule-item:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.rule-item:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.rule-item:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+.rule-item:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+.rule-item:nth-child(5) {
+    animation-delay: 1,1s;
+}
+
+.rule-item:nth-child(6) {
+    animation-delay: 1.3s;
+}
+
+.rule-item:nth-child(7) {
+    animation-delay: 1.5s;
+}
+
+.rule-item:nth-child(8) {
+    animation-delay: 1.7s;
+}
+
+.rule-item:nth-child(9) {
+    animation-delay: 1.9s;
+}
+
+.rule-item:nth-child(10) {
+    animation-delay: 2.1s;
 }
 
 /* Particules animées */
