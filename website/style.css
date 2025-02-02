@@ -412,3 +412,29 @@ body {
     .desktop-nav { display: none; }
     .hamburger-menu { display: block; }
 }
+
+
+@media (max-width: 692px) {
+    .time-box {
+        padding: 1rem 2rem;
+    }
+}
+@media (max-width: 624px) {
+    .time-box {
+        padding: 1rem 1.5rem;
+    }
+    .neon-header h1 
+    {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 547px) {
+    .countdown {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+}
