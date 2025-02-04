@@ -1,23 +1,35 @@
 // Countdown Timer Section
 const setupCountdown = () => {
-    const countdownDate = new Date('2025-02-04T08:00:00').getTime();
-    
+    const countdownDate = new Date('2025-02-12T10:00:00').getTime();
+    const countdownInterval = setInterval(updateCountdown, 1000);
+
     function updateCountdown() {
         const now = new Date().getTime();
         const distance = countdownDate - now;
-    
+
+        if (distance <= 0) {
+            clearInterval(countdownInterval); // Stop the countdown
+            document.getElementById('days').innerText = "00";
+            document.getElementById('hours').innerText = "00";
+            document.getElementById('minutes').innerText = "00";
+            document.getElementById('seconds').innerText = "00"; // Fixing the incorrect "Seconds" ID
+            return;
+        }
+
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
+
         document.getElementById('days').innerText = days.toString().padStart(2, '0');
         document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
         document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
-        document.getElementById('Seconds').innerText = seconds.toString().padStart(2, '0');
+        document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0'); // Fixing "Seconds" ID
     }
-    setInterval(updateCountdown, 1000);
+
+    updateCountdown(); // Initialize countdown immediately
 };
+
 
 // Animation for Rules 
 const setupIntersectionObserver = () => {
