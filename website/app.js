@@ -1,6 +1,6 @@
 // Countdown Timer Section
 const setupCountdown = () => {
-    const countdownDate = new Date('2025-02-16T10:00:00').getTime();
+    const countdownDate = new Date('2025-02-16T00:00:00').getTime();
     const countdownInterval = setInterval(updateCountdown, 1000);
 
     function updateCountdown() {
@@ -8,11 +8,15 @@ const setupCountdown = () => {
         const distance = countdownDate - now;
 
         if (distance <= 0) {
-            clearInterval(countdownInterval); // Stop the countdown
+            clearInterval(countdownInterval);
             document.getElementById('days').innerText = "00";
             document.getElementById('hours').innerText = "00";
             document.getElementById('minutes').innerText = "00";
-            document.getElementById('seconds').innerText = "00"; // Fixing the incorrect "Seconds" ID
+            document.getElementById('seconds').innerText = "00"; 
+            
+            document.querySelector('.cta-text').innerHTML = "Time is Over ⌛";
+
+            document.querySelector('.cta-button').removeAttribute('href');
             return;
         }
 
@@ -24,10 +28,10 @@ const setupCountdown = () => {
         document.getElementById('days').innerText = days.toString().padStart(2, '0');
         document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
         document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
-        document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0'); // Fixing "Seconds" ID
+        document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0'); 
     }
 
-    updateCountdown(); // Initialize countdown immediately
+    updateCountdown(); 
 };
 
 
