@@ -61,3 +61,87 @@ document.addEventListener('DOMContentLoaded', () => {
     setupCountdown(); 
     setupIntersectionObserver(); 
 });
+
+// Gestion team size 
+document.addEventListener("DOMContentLoaded", function () {
+    const teamSizeSelect = document.querySelector('select[name="team_size"]');
+    const loginContainer = document.createElement("div"); 
+    teamSizeSelect.parentNode.insertAdjacentElement("afterend", loginContainer);
+
+    const form = document.querySelector("form"); 
+
+    teamSizeSelect.addEventListener("change", function () {
+        loginContainer.innerHTML = ""; 
+        const teamSize = parseInt(teamSizeSelect.value, 10);
+
+        for (let i = 1; i <= teamSize; i++) {
+            const inputGroup = document.createElement("div");
+            inputGroup.classList.add("input-group");
+
+            const input = document.createElement("input");
+            input.type = "text";
+            input.name = `login_${i}`;
+            input.classList.add("login-input");
+            input.required = true;
+
+            const label = document.createElement("label");
+            label.textContent = `Login Member ${i}`;
+
+            const glowLine = document.createElement("div");
+            glowLine.classList.add("glow-line");
+
+            inputGroup.appendChild(input);
+            inputGroup.appendChild(label);
+            inputGroup.appendChild(glowLine);
+            loginContainer.appendChild(inputGroup);
+        }
+    });
+
+    form.addEventListener("submit", function (event) {
+        const teamSize = parseInt(teamSizeSelect.value, 10);
+        const loginInputs = document.querySelectorAll(".login-input");
+        let filledInputs = 0;
+
+        loginInputs.forEach(input => {
+            if (input.value.trim() !== "") {
+                filledInputs++;
+            }
+        });
+
+        if (filledInputs !== teamSize) {
+            event.preventDefault(); 
+            alert(`Vous devez entrer ${teamSize} login(s) exactement.`);
+        }
+    });
+});
+//particles js ::::
+particlesJS('particles-js', {
+    particles: {
+        number: { value: 90 }, 
+        color: { value: '#00ff88' }, 
+        shape: { type: 'circle' }, 
+        opacity: { value: 0.5 }, 
+        size: { value: 2 }, 
+        move: {
+            enable: true,
+            speed: 1.5, 
+            direction: 'none',
+            random: true, 
+            straight: false,
+            out_mode: 'out'
+        }
+    },
+    interactivity: {
+        detect_on: 'canvas',
+        events: {
+            onhover: {
+                enable: true,
+                mode: 'repulse' 
+            },
+            onclick: {
+                enable: true,
+                mode: 'push' 
+            }
+        }
+    }
+});
