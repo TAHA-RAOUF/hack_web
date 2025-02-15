@@ -74,60 +74,63 @@ document.addEventListener("DOMContentLoaded", () => {
 // Gestion team size
 
 document.addEventListener("DOMContentLoaded", function () {
-  const teamSizeSelect = document.querySelector('select[name="team_size"]');
-  const loginContainer = document.getElementById("login-container");
-  const form = document.querySelector("form");
+    const teamSizeSelect = document.querySelector('select[name="team_size"]');
+    const loginContainer = document.getElementById("login-container");
+    const form = document.querySelector("form");
 
-  teamSizeSelect.addEventListener("change", function () {
-    loginContainer.innerHTML = "";
-    const teamSize = parseInt(teamSizeSelect.value, 10);
+    teamSizeSelect.addEventListener("change", function () {
+        loginContainer.innerHTML = "";
+        const teamSize = parseInt(teamSizeSelect.value, 10);
 
-    for (let i = 1; i <= 3; i++) {
-      const inputGroup = document.createElement("div");
-      inputGroup.classList.add("input-group");
-      inputGroup.style.display = "none"; 
+        for (let i = 1; i <= 3; i++) {
+            const inputGroup = document.createElement("div");
+            inputGroup.classList.add("input-group");
 
-      const input = document.createElement("input");
-      input.type = "text";
-      input.name = `login_${i}`;
-      input.classList.add("login-input");
-      input.required = i <= teamSize; 
+            const input = document.createElement("input");
+            input.type = "text";
+            input.name = `login_${i}`;
+            input.classList.add("login-input");
+            input.required = i <= teamSize;
 
-      const label = document.createElement("label");
-      label.textContent = `Login Member ${i}`;
+            const label = document.createElement("label");
+            label.textContent = `Login Member ${i}`;
 
-      const glowLine = document.createElement("div");
-      glowLine.classList.add("glow-line");
+            const glowLine = document.createElement("div");
+            glowLine.classList.add("glow-line");
 
-      inputGroup.appendChild(input);
-      inputGroup.appendChild(label);
-      inputGroup.appendChild(glowLine);
-      loginContainer.appendChild(inputGroup);
+            inputGroup.appendChild(input);
+            inputGroup.appendChild(label);
+            inputGroup.appendChild(glowLine);
+            loginContainer.appendChild(inputGroup);
 
-     
-      if (i <= teamSize) {
-        inputGroup.style.display = "block";
-      }
-    }
-  });
-
-  form.addEventListener("submit", function (event) {
-    const teamSize = parseInt(teamSizeSelect.value, 10);
-    const loginInputs = document.querySelectorAll(".login-input");
-    let filledInputs = 0;
-
-    loginInputs.forEach((input) => {
-      if (input.value.trim() !== "") {
-        filledInputs++;
-      }
+            if (i <= teamSize) {
+                inputGroup.style.display = "block";
+            } else {
+                inputGroup.style.display = "none";
+            }
+        }
     });
 
-    if (filledInputs !== teamSize) {
-      event.preventDefault();
-      alert(`Vous devez entrer ${teamSize} login(s) exactement.`);
-    }
-  });
+    form.addEventListener("submit", function (event) {
+        const teamSize = parseInt(teamSizeSelect.value, 10);
+        const loginInputs = document.querySelectorAll(".login-input");
+        const hiddenLogins = document.querySelectorAll("input[type=hidden]");
+        let filledInputs = 0;
+
+        loginInputs.forEach((input, index) => {
+            if (input.value.trim() !== "") {
+                filledInputs++;
+                hiddenLogins[index].value = input.value.trim();
+            }
+        });
+
+        if (filledInputs !== teamSize) {
+            event.preventDefault();
+            alert(`Vous devez entrer ${teamSize} login(s) exactement.`);
+        }
+    });
 });
+
 
 //particles js ::::
 particlesJS("particles-js", {
