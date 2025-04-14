@@ -1,6 +1,6 @@
 // Countdown Timer Section
 const setupCountdown = () => {
-  const countdownDate = new Date("2025-02-19T10:00:00").getTime();
+  const countdownDate = new Date("2025-04-15T10:00:00").getTime();
   const countdownInterval = setInterval(updateCountdown, 1000);
 
   function updateCountdown() {
