@@ -9,6 +9,60 @@ body {
     justify-content: center;
     align-items: center;
     padding: 2rem;
+    padding-top: 6rem;
+}
+
+/* Logo Navigation Bar */
+.logo-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, rgba(10, 10, 21, 0.95), rgba(26, 26, 46, 0.90));
+    backdrop-filter: blur(15px);
+    border-bottom: 2px solid rgba(0, 255, 136, 0.2);
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.main-logo {
+    height: 45px;
+    width: auto;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 0 15px rgba(0, 255, 136, 0.2));
+}
+
+.main-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 25px rgba(0, 255, 136, 0.4));
+}
+
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #00ff88, #00a3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-container:hover .logo-text {
+    opacity: 1;
+    transform: translateX(0);
 }
 #particles-js {
 	position: fixed;
@@ -21,17 +75,22 @@ body {
 	/* pointer-events: none; */
   }
 .form-container {
-    max-width: 800px;
+    max-width: 850px;
     width: 100%;
-    /* background: rgba(255, 255, 255, 0.03); */
-    border-radius: 20px;
-    padding: 3rem;
-    border: 1px solid rgba(0, 163, 255, 0.2);
+    border-radius: 25px;
+    padding: 3.5rem;
+    border: 2px solid rgba(0, 255, 136, 0.25);
     position: relative;
-    backdrop-filter: blur(10px);
-	position: relative;
-  	z-index: 1;
- 	background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(20px);
+    z-index: 1;
+    background: linear-gradient(135deg, rgba(0, 10, 20, 0.9), rgba(15, 25, 35, 0.85));
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 136, 0.1);
+    transition: all 0.3s ease;
+}
+
+.form-container:hover {
+    border-color: rgba(0, 255, 136, 0.4);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 255, 136, 0.2);
 }
 
 .neon-header {
@@ -62,13 +121,24 @@ body {
 .input-group select,
 .input-group textarea {
     width: 100%;
-    padding: 1rem;
-    background: rgba(54, 54, 54, 0.669);
-    border: none;
-    border-radius: 8px;
+    padding: 1.2rem;
+    background: rgba(20, 30, 50, 0.7);
+    border: 2px solid rgba(0, 163, 255, 0.2);
+    border-radius: 10px;
     color: #fff;
     font-size: 1rem;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    outline: none;
+    background: rgba(20, 30, 50, 0.9);
+    border-color: #00ff88;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+    transform: translateY(-2px);
 }
 
 .input-group textarea {
@@ -84,8 +154,6 @@ body {
     color: #7d7dff;
     pointer-events: none;
     transition: all 0.3s ease;
-    background: #0a0a15;
-    padding: 0 0.5rem;
 }
 
 .input-group input:focus ~ label,
@@ -96,6 +164,72 @@ body {
     top: 0;
     font-size: 0.8rem;
     color: #00ff88;
+    background: transparent;
+    padding: 0;
+}
+
+/* Form Submit Button */
+.center-container .cta-button {
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.center-container .cta-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.6), 0 0 50px rgba(0, 163, 255, 0.4);
+}
+
+.center-container .cta-button:active {
+    transform: translateY(-1px) scale(1.02);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.center-container .cta-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.6), 0 0 50px rgba(0, 163, 255, 0.4);
+}
+
+.center-container .cta-button:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .logo-nav {
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .main-logo {
+        height: 35px;
+    }
+    
+    .logo-text {
+        font-size: 1.1rem;
+    }
+    
+    .form-container {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-nav {
+        padding: 0.6rem 1rem;
+    }
+    
+    .main-logo {
+        height: 30px;
+    }
+    
+    .logo-text {
+        font-size: 0.9rem;
+    }
+    
+    body {
+        padding: 1rem;
+        padding-top: 5rem;
+    }
 }
 
 .glow-line {

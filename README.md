@@ -1,10 +1,19 @@
-Hackathon 1337 - WebDev Jam
-Welcome to the Hackathon 1337! A 24-hour coding challenge where participants create innovative web platforms. This is your chance to showcase your skills and contribute to a community of driven developers.
+# Hackathon 1337 - WebDev Jam (2nd Edition) 🚀
 
-Overview
+Welcome to the **2nd Edition** of Hackathon 1337! A 24-hour coding challenge where participants create innovative web platforms. This is your chance to showcase your skills and contribute to a community of driven developers.
+
+## 🎯 Overview
 The goal of the Hackathon is to build a web-based platform that enhances the experience of 1337 students. Participants can choose to build from scratch or use libraries like React to create their project.
 
-Key Details
+## ✨ What's New in 2nd Edition
+- **Modern UI/UX**: Enhanced design with dynamic particle backgrounds
+- **Smooth Animations**: Improved transitions and hover effects
+- **Better Interactivity**: Interactive particle system that responds to mouse movements
+- **Glassmorphism Design**: Modern card designs with backdrop blur effects
+- **Mobile Responsive**: Fully optimized for all device sizes
+- **Enhanced Visual Feedback**: Better form validation and user interactions
+
+## 🔑 Key Details
 Event Duration: 24 Hours
 Theme: Build a platform that adds value to 1337 students.
 Conditions:

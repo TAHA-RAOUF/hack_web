@@ -4,57 +4,77 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Web Hackathon</title>
-	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
-	<link href="/style.css" rel="stylesheet">
-	<link rel="icon" type="image/png" href="https://cdn.discordapp.com/icons/1297985128907411517/a236bc3e32908904f62b00d01ec6453b.webp?size=96">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Orbitron:wght@500&display=swap"
+		rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+	<link rel="icon" type="image/png"
+		href="https://cdn.discordapp.com/icons/1297985128907411517/a236bc3e32908904f62b00d01ec6453b.webp?size=96">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
 	<div id="particles-js"></div>
+
+	<!-- Logo Navigation Bar -->
+	<nav class="logo-nav">
+		<a href="home.html" class="logo-container">
+			<img src="logo_w.png" alt="Hackathon 1337 Logo" class="main-logo">
+			<span class="logo-text">Hackathon 1337</span>
+		</a>
+	</nav>
+
 	<!-- Main Container -->
 	<div class="hackathon-container">
 		<header class="neon-header">
-		 <h1>🚀 Hackathon 1337 
-				<!-- 1st Edition Logo -->
-				<svg class="edition-logo" viewBox="0 0 120 120" width="60" height="60">
+			<h1> Hackathon 1337
+				<!-- 2nd Edition Badge -->
+				<svg class="edition-logo" viewBox="0 0 120 120" width="70" height="70">
 					<defs>
 						<linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
 							<stop offset="0%" style="stop-color:#00ff9d;stop-opacity:1" />
+							<stop offset="50%" style="stop-color:#00d4ff;stop-opacity:1" />
 							<stop offset="100%" style="stop-color:#0066ff;stop-opacity:1" />
 						</linearGradient>
 						<filter id="neonGlow">
-							<feGaussianBlur stdDeviation="2.5" result="glow"/>
+							<feGaussianBlur stdDeviation="3" result="glow" />
 							<feMerge>
-								<feMergeNode in="glow"/>
-								<feMergeNode in="SourceGraphic"/>
+								<feMergeNode in="glow" />
+								<feMergeNode in="SourceGraphic" />
 							</feMerge>
 						</filter>
 					</defs>
-					<path d="M60 5 L115 30 L115 90 L60 115 L5 90 L5 30 Z" 
-						  fill="none" 
-						  stroke="url(#neonGradient)" 
-						  stroke-width="3"
-						  filter="url(#neonGlow)"/>
-					<text x="50%" y="50%" 
-						  text-anchor="middle" 
-						  dominant-baseline="middle" 
-						  font-family="Arial" 
-						  font-weight="bold" 
-						  fill="url(#neonGradient)"
-						  font-size="14">
-						1st Edition
+					<circle cx="60" cy="60" r="50" fill="none" stroke="url(#neonGradient)" stroke-width="3"
+						filter="url(#neonGlow)" class="badge-circle" />
+					<text x="50%" y="45%" text-anchor="middle" dominant-baseline="middle"
+						font-family="'Orbitron', sans-serif" font-weight="bold" fill="url(#neonGradient)" font-size="28"
+						class="edition-number">
+						2
 					</text>
-					<path d="M60 20 L63 27 L71 28 L65 33 L67 40 L60 36 L53 40 L55 33 L49 28 L57 27 Z" 
-						  fill="#00ff9d"
-						  style="filter: drop-shadow(0 0 2px #00ff9d); 
-								 animation: starSpin 2s infinite linear;
-								 transform-origin: 60px 60px;">
+					<text x="50%" y="65%" text-anchor="middle" dominant-baseline="middle"
+						font-family="'Space Grotesk', sans-serif" font-size="10" fill="#00ff9d" letter-spacing="1">
+						ND EDITION
+					</text>
+					<circle cx="60" cy="60" r="45" fill="none" stroke="#00ff9d" stroke-width="1" stroke-dasharray="5,5"
+						class="inner-circle">
 				</svg>
 			</h1>
-			<p class="subtitle">24-Hour Coding Challenge</p>
-			<p class="sub-name"> 💻 WEBDEV-JAM 🌐</p>
-			<div class="gradient-border"></div>
+			<p class="subtitle encrypted-text" id="encryptedSubtitle">48-Hour Coding Challenge</p>
+		<div class="true-focus-container" id="trueFocusContainer">
+			<span class="focus-word" data-index="0">WEBDEV</span>
+			<span class="focus-word" data-index="1">-</span>
+			<span class="focus-word" data-index="2">JAM</span>
+			<div class="focus-brackets">
+				<span class="bracket top-left"></span>
+				<span class="bracket top-right"></span>
+				<span class="bracket bottom-left"></span>
+				<span class="bracket bottom-right"></span>
+			</div>
+		</div>
 		</header>
+
+
+		<!-- Countdown Timer -->
 		<div class="countdown">
 			<div class="time-box">
 				<span id="days">00</span>
@@ -73,13 +93,21 @@
 				<small>Seconds</small>
 			</div>
 		</div>
+
 		<!-- Main CTA -->
 		<div class="center-container">
-			<a href="form.html" class="cta-button pulse">
-				<span class="cta-text">Free Registration</span>
-				<div class="hover-effect"></div>
+			<a href="form.html" class="play-button">
+				<span class="play-text">REGISTER</span>
+				<div id="clip">
+					<div id="leftTop" class="corner"></div>
+					<div id="rightBottom" class="corner"></div>
+					<div id="rightTop" class="corner"></div>
+					<div id="leftBottom" class="corner"></div>
+				</div>
+				<span id="rightArrow" class="arrow"></span>
+				<span id="leftArrow" class="arrow"></span>
 			</a>
-		</div> 
+		</div>
 		<!-- Info Cards -->
 		<div class="info-grid">
 			<div class="info-card">
@@ -103,8 +131,8 @@
 			</div>
 		</div>
 		<!-- Rules Section -->
-		<div class="rules-section" id = "rules-section">
-			<h2>📜 Rules</h2>
+		<div class="rules-section" id="rules-section">
+			<h2> Rules</h2>
 			<div class="rules-list">
 				<div class="rule-item">✅ Teams of 1-3 people</div>
 				<div class="rule-item">✅ 24 hours non-stop!</div>
@@ -115,8 +143,45 @@
 				<div class="rule-item">✅ API integration (optional but encouraged)</div>
 				<div class="rule-item">✅ Start from scratch or use a library</div>
 				<div class="rule-item">✅ Documentation (README file explaining the project)</div>
-				<div class="rule-item">✅ Demo presentation (20  minutes to showcase your project)</div>
+				<div class="rule-item">✅ Demo presentation (20 minutes to showcase your project)</div>
 			</div>
+		</div>
+
+		<!-- First Edition Gallery Carousel -->
+		<div class="carousel-section">
+			<h2 class="carousel-title">First Edition Highlights</h2>
+			<div class="carousel-container" id="carouselContainer">
+				<div class="carousel-track" id="carouselTrack">
+					<div class="carousel-card" data-index="0">
+						<div class="card-content">
+							<img src="pic1.webp" alt="Hackathon Team" class="card-image">
+							<div class="card-overlay">
+								<span class="card-category">Success</span>
+								<h3 class="card-title">Celebrating Winners</h3>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-card" data-index="1">
+						<div class="card-content">
+							<img src="pic2.webp" alt="Coding Session" class="card-image">
+							<div class="card-overlay">
+								<span class="card-category">Innovation</span>
+								<h3 class="card-title">Creative Solutions</h3>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-card" data-index="2">
+						<div class="card-content">
+							<img src="pic3.webp" alt="Presentations" class="card-image">
+							<div class="card-overlay">
+								<span class="card-category">Development</span>
+								<h3 class="card-title">Building The Future</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="carousel-indicators" id="carouselIndicators"></div>
 		</div>
 	</div>
 	<!-- Version simplifiée pour test -->
@@ -134,5 +199,329 @@
 <script src="app.js" defer></script>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
-	
+	// Particles.js Configuration for Dynamic Background
+	particlesJS('particles-js', {
+		particles: {
+			number: { value: 80, density: { enable: true, value_area: 800 } },
+			color: { value: ['#00ff88', '#00a3ff', '#7d7dff'] },
+			shape: { type: 'circle' },
+			opacity: { value: 0.5, random: true },
+			size: { value: 3, random: true },
+			line_linked: {
+				enable: true,
+				distance: 150,
+				color: '#00ff88',
+				opacity: 0.4,
+				width: 1
+			},
+			move: {
+				enable: true,
+				speed: 2,
+				direction: 'none',
+				random: true,
+				straight: false,
+				out_mode: 'out',
+				bounce: false
+			}
+		},
+		interactivity: {
+			detect_on: 'canvas',
+			events: {
+				onhover: { enable: true, mode: 'grab' },
+				onclick: { enable: true, mode: 'push' },
+				resize: true
+			},
+			modes: {
+				grab: { distance: 140, line_linked: { opacity: 1 } },
+				push: { particles_nb: 4 }
+			}
+		},
+		retina_detect: true
+	});
+
+	// Smooth scroll behavior
+	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+		anchor.addEventListener('click', function (e) {
+			e.preventDefault();
+			const target = document.querySelector(this.getAttribute('href'));
+			if (target) {
+				target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			}
+		});
+	});
+
+	// True Focus Animation
+	(function() {
+		const container = document.getElementById('trueFocusContainer');
+		if (!container) return;
+
+		const words = container.querySelectorAll('.focus-word');
+		const brackets = container.querySelector('.focus-brackets');
+		let currentIndex = 0;
+		const animationDuration = 0.5; // seconds
+		const pauseBetweenAnimations = 1; // seconds
+		let isManualMode = false;
+
+		function updateFocus(index) {
+			// Remove active class from all words
+			words.forEach(word => word.classList.remove('active'));
+			
+			// Add active class to current word
+			if (index >= 0 && index < words.length) {
+				words[index].classList.add('active');
+				
+				// Update brackets position
+				const wordRect = words[index].getBoundingClientRect();
+				const containerRect = container.getBoundingClientRect();
+				
+				if (brackets) {
+					brackets.style.left = `${wordRect.left - containerRect.left}px`;
+					brackets.style.top = `${wordRect.top - containerRect.top}px`;
+					brackets.style.width = `${wordRect.width}px`;
+					brackets.style.height = `${wordRect.height}px`;
+					brackets.classList.add('active');
+				}
+			}
+		}
+
+		// Auto-cycle through words
+		let interval = setInterval(() => {
+			if (!isManualMode) {
+				currentIndex = (currentIndex + 1) % words.length;
+				updateFocus(currentIndex);
+			}
+		}, (animationDuration + pauseBetweenAnimations) * 1000);
+
+		// Manual mode on hover
+		words.forEach((word, index) => {
+			word.addEventListener('mouseenter', () => {
+				isManualMode = true;
+				currentIndex = index;
+				updateFocus(index);
+			});
+
+			word.addEventListener('mouseleave', () => {
+				isManualMode = false;
+			});
+		});
+
+		// Initialize first word
+		updateFocus(0);
+	})();
+
+	// Rules Section Visibility on Scroll
+	(function() {
+		const rulesSection = document.querySelector('.rules-section');
+		if (!rulesSection) return;
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+				}
+			});
+		}, {
+			threshold: 0.1
+		});
+
+		observer.observe(rulesSection);
+	})();
+
+	// Encrypted Text Animation
+	(function() {
+		const subtitle = document.getElementById('encryptedSubtitle');
+		if (!subtitle) return;
+
+		const originalText = subtitle.textContent;
+		const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*';
+		let revealedChars = 0;
+		const revealDelayMs = 50;
+		
+		// Set initial encrypted state
+		subtitle.textContent = originalText.split('').map(() => 
+			chars[Math.floor(Math.random() * chars.length)]
+		).join('');
+		
+		subtitle.classList.add('encrypting');
+
+		// Start revealing after a short delay
+		setTimeout(() => {
+			const revealInterval = setInterval(() => {
+				if (revealedChars >= originalText.length) {
+					clearInterval(revealInterval);
+					subtitle.classList.remove('encrypting');
+					subtitle.classList.add('revealed');
+					return;
+				}
+
+				subtitle.textContent = originalText.split('').map((char, index) => {
+					if (index < revealedChars) {
+						return originalText[index];
+					} else if (index === revealedChars) {
+						return originalText[index];
+					} else {
+						return chars[Math.floor(Math.random() * chars.length)];
+					}
+				}).join('');
+
+				revealedChars++;
+			}, revealDelayMs);
+		}, 500);
+	})();
+
+	// Apple-Style Carousel
+	(function() {
+		const track = document.getElementById('carouselTrack');
+		const indicatorsContainer = document.getElementById('carouselIndicators');
+		const cards = document.querySelectorAll('.carousel-card');
+		
+		if (!track || !cards.length) return;
+
+		// Clone first card for seamless infinite loop
+		const firstCardClone = cards[0].cloneNode(true);
+		track.appendChild(firstCardClone);
+
+		let currentIndex = 0;
+		const totalCards = cards.length;
+		let autoPlayInterval;
+
+		// Create indicators
+		cards.forEach((_, index) => {
+			const indicator = document.createElement('div');
+			indicator.className = 'carousel-indicator';
+			if (index === 0) indicator.classList.add('active');
+			indicator.addEventListener('click', () => goToSlide(index));
+			indicatorsContainer.appendChild(indicator);
+		});
+
+		const indicators = document.querySelectorAll('.carousel-indicator');
+
+		function updateCarousel(instant = false) {
+			// Get card width and gap dynamically
+			const cardElement = cards[0];
+			const cardWidth = cardElement.offsetWidth;
+			// Get gap from carousel track (2rem = 32px)
+			const computedStyle = window.getComputedStyle(track);
+			const gap = parseFloat(computedStyle.gap) || 32;
+			const offset = -currentIndex * (cardWidth + gap);
+			
+			if (instant) {
+				track.style.transition = 'none';
+			}
+			
+			track.style.transform = `translateX(${offset}px)`;
+			
+			if (instant) {
+				// Force reflow
+				track.offsetHeight;
+				track.style.transition = '';
+			}
+			
+			indicators.forEach((indicator, index) => {
+				indicator.classList.toggle('active', index === currentIndex % totalCards);
+			});
+		}
+
+		function goToSlide(index) {
+			currentIndex = index;
+			updateCarousel();
+			resetAutoPlay();
+		}
+
+		function nextSlide() {
+			currentIndex = (currentIndex + 1) % totalCards;
+			updateCarousel();
+		}
+
+		// Touch/swipe support for mobile
+		let startX = 0;
+		let startY = 0;
+		let isDragging = false;
+
+		track.addEventListener('touchstart', (e) => {
+			startX = e.touches[0].pageX;
+			startY = e.touches[0].pageY;
+			isDragging = true;
+		}, { passive: true });
+
+		track.addEventListener('touchmove', (e) => {
+			if (!isDragging) return;
+			const currentX = e.touches[0].pageX;
+			const currentY = e.touches[0].pageY;
+			const diffX = Math.abs(currentX - startX);
+			const diffY = Math.abs(currentY - startY);
+			
+			// Prevent vertical scroll if horizontal swipe is detected
+			if (diffX > diffY) {
+				e.preventDefault();
+			}
+		});
+
+		track.addEventListener('touchend', (e) => {
+			if (!isDragging) return;
+			isDragging = false;
+			
+			const endX = e.changedTouches[0].pageX;
+			const diff = startX - endX;
+			
+			if (Math.abs(diff) > 50) {
+				if (diff > 0) {
+					// Swipe left - next
+					currentIndex++;
+					if (currentIndex > totalCards) currentIndex = 0;
+					updateCarousel();
+					
+					if (currentIndex === totalCards) {
+						setTimeout(() => {
+							currentIndex = 0;
+							updateCarousel(true);
+						}, 500);
+					}
+				} else {
+					// Swipe right - previous
+					if (currentIndex === 0) {
+						currentIndex = totalCards;
+						updateCarousel(true);
+						setTimeout(() => {
+							currentIndex = totalCards - 1;
+							updateCarousel();
+						}, 50);
+					} else {
+						currentIndex--;
+						updateCarousel();
+					}
+				}
+				resetAutoPlay();
+			}
+		}, { passive: true });
+
+		// Auto-play
+		function startAutoPlay() {
+			autoPlayInterval = setInterval(() => {
+				currentIndex++;
+				updateCarousel();
+				
+				// Reset to first card after clone (seamless infinite loop)
+				if (currentIndex === totalCards) {
+					setTimeout(() => {
+						currentIndex = 0;
+						updateCarousel(true);
+					}, 500);
+				}
+			}, 4000);
+		}
+
+		function resetAutoPlay() {
+			clearInterval(autoPlayInterval);
+			startAutoPlay();
+		}
+
+		// Update on window resize
+		window.addEventListener('resize', () => {
+			updateCarousel();
+		});
+
+		startAutoPlay();
+		updateCarousel();
+	})();
 </script>
