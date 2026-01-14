@@ -9,8 +9,9 @@ const setupCountdown = () => {
   const secondsEl = document.getElementById("seconds");
   const ctaText = document.querySelector(".cta-text");
   const ctaButton = document.querySelector(".cta-button");
+  const registerButton = document.querySelector(".play-button");
 
-  const countdownDate = new Date("2025-04-15T10:00:00").getTime();
+  const countdownDate = new Date("2026-01-21T10:00:00").getTime();
   const countdownInterval = setInterval(updateCountdown, 1000);
 
   function updateCountdown() {
@@ -30,6 +31,18 @@ const setupCountdown = () => {
 
       if (ctaButton) {
         ctaButton.removeAttribute("href");
+      }
+
+      // Disable the register button
+      if (registerButton) {
+        registerButton.removeAttribute("href");
+        registerButton.style.pointerEvents = "none";
+        registerButton.style.opacity = "0.5";
+        registerButton.style.cursor = "not-allowed";
+        const playText = registerButton.querySelector(".play-text");
+        if (playText) {
+          playText.textContent = "REGISTRATION CLOSED";
+        }
       }
       return;
     }

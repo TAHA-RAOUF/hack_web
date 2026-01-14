@@ -614,7 +614,7 @@ body {
     left: 0;
     right: 0;
     padding: 2rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
 }
 
 @media (min-width: 768px) {
@@ -1766,7 +1766,7 @@ a:hover {
 }
 
 .card-image {
-    filter: grayscale(100%) contrast(1.05);
+    filter: none;
 }
 
 .card-overlay {
