@@ -11,7 +11,7 @@ const setupCountdown = () => {
   const ctaButton = document.querySelector(".cta-button");
   const registerButton = document.querySelector(".play-button");
 
-  const countdownDate = new Date("2026-01-21T10:00:00").getTime();
+  const countdownDate = new Date("2026-01-21T09:00:00").getTime();
   const countdownInterval = setInterval(updateCountdown, 1000);
 
   function updateCountdown() {
@@ -303,7 +303,7 @@ const setupTeamSize = () => {
     loginContainer.innerHTML = "";
     const teamSize = parseInt(teamSizeSelect.value, 10);
 
-    for (let i = 1; i <= 3; i += 1) {
+    for (let i = 1; i <= 4; i += 1) {
       const inputGroup = document.createElement("div");
       inputGroup.classList.add("input-group", "input-group--full");
 
@@ -327,13 +327,15 @@ const setupTeamSize = () => {
   form.addEventListener("submit", (event) => {
     const teamSize = parseInt(teamSizeSelect.value, 10);
     const loginInputs = document.querySelectorAll(".login-input");
-    const hiddenLogins = document.querySelectorAll("input[type=hidden]");
+    const hiddenLogins = document.querySelectorAll('input[name^="login_"][type="hidden"]');
     let filledInputs = 0;
 
     loginInputs.forEach((input, index) => {
       if (input.value.trim() !== "") {
         filledInputs += 1;
-        hiddenLogins[index].value = input.value.trim();
+        if (hiddenLogins[index]) {
+          hiddenLogins[index].value = input.value.trim();
+        }
       }
     });
 
