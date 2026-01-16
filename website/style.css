@@ -33,6 +33,17 @@ link[rel="icon"] {
     width: fit-content;
 }
 
+.logo-container span {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #000000, #2f4451);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.08em;
+}
+
 .main-logo {
     height: 45px;
     width: auto;
@@ -42,7 +53,7 @@ link[rel="icon"] {
 
 .main-logo:hover {
     transform: scale(1.05);
-    filter: drop-shadow(0 0 25px rgba(0, 255, 136, 0.4));
+    /* filter: drop-shadow(0 0 25px rgba(0, 255, 136, 0.4)); */
 }
 
 .logo-text {
@@ -1501,10 +1512,23 @@ body {
     color: var(--ink);
     font-family: var(--pixel-font);
     line-height: 1.6;
+    letter-spacing: 0.15em;
+    word-spacing: 0.3em;
 }
 
 body * {
     font-family: var(--pixel-font) !important;
+    letter-spacing: 0.15em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: 0.18em;
+    word-spacing: 0.35em;
+}
+
+p, span, div {
+    letter-spacing: 0.12em;
+    word-spacing: 0.25em;
 }
 
 input,
@@ -1512,6 +1536,7 @@ select,
 textarea,
 button {
     font-family: var(--pixel-font) !important;
+    letter-spacing: 0.12em;
 }
 
 a {
